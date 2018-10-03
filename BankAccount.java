@@ -13,6 +13,9 @@ public class BankAccount {
   public int getAccountID(){
     return accountID;
   }
+  public String getPassword(){
+    return password;
+  }
   public void setPassword(String nnp){
     password = nnp;
   }
@@ -33,5 +36,5 @@ public class BankAccount {
     balance = balance - money;
     return true;
   }
-  
+
 }
