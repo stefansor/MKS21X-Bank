@@ -13,9 +13,6 @@ public class BankAccount {
   public int getAccountID(){
     return accountID;
   }
-  public String getPassword(){
-    return password;
-  }
   public void setPassword(String nnp){
     password = nnp;
   }
@@ -36,5 +33,20 @@ public class BankAccount {
     balance = balance - money;
     return true;
   }
-
+  private boolean authenticate(String password){
+    if (this.password.equals(password)){
+      return true;
+    }
+    return false;
+  }
+  public boolean transferTo(BankAccount other, double amount, String password){
+    if(this.authenticate(password)){
+      if(amount > 0 && amount <= this.balance){
+        this.withdraw(amount);
+        other.deposit(amount);
+        return true;
+      }
+    }
+    return false;
+  }
 }
